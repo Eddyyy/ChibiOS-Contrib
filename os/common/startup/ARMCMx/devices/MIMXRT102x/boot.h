@@ -67,6 +67,8 @@ const uint32_t BootData[3] = {
 __attribute__ ((section(".csf"), used))
 const uint32_t hab_csf[768];	// placeholder for HAB signature
 
+/*
+ * Not needed since Reset_handler will now configure the FlexRam
 __attribute__ ((section(".dcd"), used))
 const uint32_t dcdTable[64] = {
     0x410020D2,         // Version,Length,Tag   (Header)
@@ -80,18 +82,18 @@ const uint32_t dcdTable[64] = {
     0x400AC040,0x00200007,  // IOMUXC_GPR_GPR16
     0x400AC038,0x00760000   // IOMUXC_GPR_GPR14
 };
-
+*/
 
 __attribute__ ((section(".ivt"), used))
 const uint32_t ImageVectorTable[8] = {
-	0x432000D1,		        // header
-	(uint32_t)&Reset_Handler,// program entry
-	0,			            // reserved
-	(uint32_t)dcdTable,	// dcd
-	(uint32_t)BootData,	    // abs address of boot data
+	0x432000D1,		            // header
+	(uint32_t)&Reset_Handler,   // program entry
+	0,			                // reserved
+	0, // (uint32_t)dcdTable,	// dcd
+	(uint32_t)BootData,	        // abs address of boot data
 	(uint32_t)ImageVectorTable, // self
-	(uint32_t)hab_csf,	    // command sequence file
-	0			            // reserved
+	(uint32_t)hab_csf,	        // command sequence file
+	0			                // reserved
 };
 
 

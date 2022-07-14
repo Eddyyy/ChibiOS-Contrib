@@ -1,0 +1,8 @@
+
+let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_mode_map = { 'passive_filetypes': ['cpp', 'c', 'h', 'ld', 'asm'] }
+
+let g:ycm_enable_diagnostic_signs = 0
+let g:ycm_enable_diagnostic_highlighting = 0
+
