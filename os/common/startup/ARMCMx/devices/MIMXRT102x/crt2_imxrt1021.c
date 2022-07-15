@@ -3,9 +3,8 @@
 #include "MIMXRT1021.h"
 #include "cmparams.h"
 
-extern void Reset_Handler(void);
-extern unsigned long _estack;
-extern unsigned long _flashimagelen;
+//extern void Reset_Handler(void);
+//extern unsigned long _flashimagelen;
 
 void __cpu_init(void) {
 
@@ -42,7 +41,7 @@ void __cpu_init(void) {
 // void __late_init(void) {}
 
 
-
+/*
 __attribute__ ((section(".bootdata"), used))
 const uint32_t BootData[3] = {
 	0x60000000, // Flash base -> boot start location
@@ -303,4 +302,4 @@ uint32_t FlexSPI_NOR_Config[128] = {
 	0,			    // reserved
 	0			    // reserved
 };
-
+*/
