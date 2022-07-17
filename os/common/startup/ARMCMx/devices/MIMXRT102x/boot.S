@@ -28,6 +28,8 @@
             .thumb_func
             .globl       Reset_Handler
 Reset_Handler:
+            cpsid   i
+            nop
 
             ldr     r3, iomuxc_gpr_base // IOMUXC_GPR_BASE
 
@@ -48,10 +50,9 @@ Reset_Handler:
 
             b          _crt0_entry
 
-.text
-iomuxc_gpr_base: .word 0x400AC000
+            iomuxc_gpr_base: .word 0x400AC000
 #if defined(MIMXRT1021EVK_EVAL_BRD)
-gpr17_init: .word 0x000057A5
-gpr16_init: .word 0x00200007
-gpr14_init: .word 0x00760000
+            gpr17_init: .word 0x000057A5
+            gpr16_init: .word 0x00200007
+            gpr14_init: .word 0x00760000
 #endif
